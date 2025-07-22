@@ -1,4 +1,5 @@
 <script type="text/discourse-plugin" version="0.8">
+  console.log("right-sidebar.js loaded");
   // 默认链接和广告
   const DEFAULT_LINKS = [
     { text: "分类导航", url: "/categories" },
