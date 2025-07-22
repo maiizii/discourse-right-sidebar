@@ -1,0 +1,36 @@
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 80px;
+  width: 280px;
+  background: #fff;
+  border-left: 1px solid #ececec;
+  z-index: 100;
+  padding: 16px;
+}
+.sidebar-user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+}
+.sidebar-links ul,
+.sidebar-new-users ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar-links li,
+.sidebar-new-users li {
+  margin-bottom: 6px;
+}
+.sidebar-ads img {
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
