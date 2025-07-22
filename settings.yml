@@ -1,15 +1,11 @@
 custom_links:
   type: list
-  default:
-    - "{\"title\":\"百度\",\"url\":\"https://baidu.com\"}"
-    - "{\"title\":\"谷歌\",\"url\":\"https://google.com\"}"
+  default: "[]"
   description: "自定义侧边栏链接。每项格式：{\"title\":\"xxx\",\"url\":\"xxx\"}"
 
 ad_slots:
   type: list
-  default:
-    - "{\"image\":\"https://xxx.com/ad1.jpg\",\"url\":\"https://ad1.com\"}"
-    - "{\"image\":\"https://xxx.com/ad2.jpg\",\"url\":\"https://ad2.com\"}"
+  default: "[]"
   description: "广告位配置。每项格式：{\"image\":\"xxx\",\"url\":\"xxx\"}"
 
 sidebar_welcome_user_count:
