@@ -1,3 +1,15 @@
+#discourse-right-sidebar .sidebar {
+  position: fixed;
+  right: 0;
+  top: 80px;
+  width: 280px;
+  background: #fff;
+  border-left: 1px solid #ececec;
+  z-index: 9999;
+  padding: 16px;
+  box-shadow: 0 0 10px #eee;
+}
+
 .sidebar {
   position: fixed;
   right: 0;
