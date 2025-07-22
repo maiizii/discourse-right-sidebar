@@ -1,22 +1,14 @@
 sidebar_links:
-  type: multiline
-  default: |
-    分类导航|/categories
-    标签页|/tags
-    关于本站|/about
-    新手指南|/faq
-    积分榜|/leaderboard/1
-  description: "每行一个链接，格式：标题|链接"
+  type: list
+  default: "分类导航|/categories|标签页|/tags|关于本站|/about"
+  description: "每项格式：标题|链接"
 
 sidebar_ads:
-  type: multiline
-  default: |
-    https://via.placeholder.com/200x60?text=广告位|https://your-ad-link.com|广告位
-  description: "每行一个广告，格式：图片URL|跳转链接|alt文字"
+  type: list
+  default: "https://via.placeholder.com/200x60?text=广告位|https://your-ad-link.com|广告位"
+  description: "每项格式：图片URL|跳转链接|alt文字"
 
 sidebar_announcement:
-  type: multiline
-  default: |
-    🎉 站点公告：欢迎加入我们的社区！
-    <a href="/announcements" style="color:#d84315;text-decoration:underline;">更多公告</a>
-  description: "右侧栏公告内容，支持多行和HTML"
+  type: list
+  default: "🎉 站点公告：欢迎加入我们的社区！|更多公告"
+  description: "每项一行"
