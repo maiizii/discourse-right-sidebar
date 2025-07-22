@@ -1,3 +1,5 @@
+console.log("sidebar.js.es6 loaded");
+
 import { apiInitializer } from "discourse/lib/api";
 
 export default apiInitializer("0.8", (api) => {
