@@ -4,17 +4,18 @@ export default apiInitializer("0.8", (api) => {
   function parseList(settingList) {
     if (!settingList || !settingList.length) return [];
     return settingList.map(item => {
-      try { return JSON.parse(item); } catch(e) { return null; }
+      try { return JSON.parse(item); } catch { return null; }
     }).filter(Boolean);
   }
+
   const siteSettings = api.container.lookup("service:siteSettings");
   const links = parseList(siteSettings.custom_links);
   const ads = parseList(siteSettings.ad_slots);
 
-  // 挂载 sidebar 到 body（每次页面变动都重新挂载，防止刷新丢失）
   function mountSidebar() {
     let sidebar = document.getElementById("discourse-right-sidebar");
     if (sidebar) sidebar.remove();
+
     sidebar = document.createElement("div");
     sidebar.id = "discourse-right-sidebar";
     sidebar.innerHTML = `
@@ -38,6 +39,6 @@ export default apiInitializer("0.8", (api) => {
   }
 
   api.onPageChange(() => {
-    setTimeout(mountSidebar, 200); // 确保页面加载后插入
+    setTimeout(mountSidebar, 500); // 确保主页面渲染后插入
   });
 });
