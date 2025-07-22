@@ -9,6 +9,21 @@
   padding: 16px;
   box-shadow: 0 0 10px #eee;
 }
+#discourse-right-sidebar .sidebar-links ul,
+#discourse-right-sidebar .sidebar-new-users ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#discourse-right-sidebar .sidebar-links li,
+#discourse-right-sidebar .sidebar-new-users li {
+  margin-bottom: 6px;
+}
+#discourse-right-sidebar .sidebar-ads img {
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
 
 .sidebar {
   position: fixed;
