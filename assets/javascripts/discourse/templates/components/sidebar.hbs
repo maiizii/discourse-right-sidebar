@@ -1,0 +1,35 @@
+<div class="sidebar">
+  {{#if currentUser}}
+    <div class="sidebar-user">
+      <img src="{{currentUser.avatar_template}}" alt="头像" />
+      <span>{{currentUser.username}}</span>
+    </div>
+  {{/if}}
+
+  <div class="sidebar-links">
+    <h4>推荐链接</h4>
+    <ul>
+      {{#each settings.custom_links as |link|}}
+        <li><a href="{{link.url}}" target="_blank">{{link.title}}</a></li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <div class="sidebar-ads">
+    {{#each settings.ad_slots as |ad|}}
+      <a href="{{ad.url}}" target="_blank"><img src="{{ad.image}}" alt="广告" /></a>
+    {{/each}}
+  </div>
+
+  <div class="sidebar-new-users">
+    <h4>欢迎新成员</h4>
+    <ul>
+      {{#each newUsers as |user|}}
+        <li>
+          <img src="{{user.avatar_template}}" alt="{{user.username}}" />
+          <span>{{user.username}}</span>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
