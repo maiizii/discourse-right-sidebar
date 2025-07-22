@@ -2,5 +2,9 @@
   "name": "discourse-right-sidebar",
   "about": "自定义 Discourse 右侧栏，支持后台设置链接、广告和公告",
   "version": "0.2",
-  "authors": "maiizii"
+  "authors": [
+    "seaone-code",
+    "maiizii"
+  ],
+  "type": "component"
 }
