@@ -1,0 +1,121 @@
+#main-outlet-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+}
+
+/* 左栏 */
+.sidebar-wrapper {
+  flex: 0 0 240px;
+  width: 240px;
+  min-width: 240px;
+  margin-right: 0px;
+}
+
+/* 主内容区 */
+#main-outlet {
+  flex: 1 1 auto;
+  width: auto;
+  margin-right: 0px;
+  margin-top: 0;
+}
+
+/* 右栏 sidebar */
+#custom-right-sidebar {
+  flex: 0 0 160px;
+  width: 160px;
+  min-width: 160px;
+  margin-right: 0;
+  margin-top: 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* 右栏内容块圆角+阴影加深 */
+#custom-right-sidebar .sidebar-outer {
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.11);
+  padding: 16px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 广告图片尺寸固定 */
+#custom-right-sidebar .sidebar-ads img {
+  width: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* 其它优化 */
+#custom-right-sidebar .sidebar-links ul,
+#custom-right-sidebar .sidebar-new-users ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#custom-right-sidebar .sidebar-links li,
+#custom-right-sidebar .sidebar-new-users li {
+  margin-bottom: 8px;
+}
+#custom-right-sidebar .sidebar-new-users img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+#custom-right-sidebar h4 {
+  margin-top: 12px;
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: bold;
+}
+@media (max-width: 1200px) {
+  #custom-right-sidebar {
+    display: none;
+  }
+}
+
+.sidebar-user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f2f2f2;
+}
+.sidebar-user-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.sidebar-user-info {
+  font-size: 16px;
+  font-weight: bold;
+}
+.sidebar-user-title {
+  display: inline-block;
+  font-size: 13px;
+  color: #669966;
+  background: #f6f6f6;
+  padding: 2px 8px;
+  border-radius: 8px;
+  margin-left: 8px;
+}
+.sidebar-user-meta {
+  font-size: 14px;
+  color: #555;
+  font-weight: normal;
+  margin-top: 6px;
+  line-height: 1.6;
+}
+.sidebar-user-guest {
+  color: #999;
+  font-size: 15px;
+}
