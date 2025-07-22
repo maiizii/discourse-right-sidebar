@@ -1,0 +1,12 @@
+custom_links:
+  type: list
+  default: []
+  description: "自定义侧边栏链接，格式：{'title':'xxx','url':'xxx'}"
+ad_slots:
+  type: list
+  default: []
+  description: "广告位配置，格式：{'image':'xxx','url':'xxx'}"
+sidebar_welcome_user_count:
+  type: integer
+  default: 5
+  description: "显示欢迎新用户的数量"
