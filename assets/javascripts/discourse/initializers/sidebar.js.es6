@@ -1,26 +1,49 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
+import { apiInitializer } from "discourse/lib/api";
+import { getOwner } from "@ember/application";
 
-export default {
-  name: "sidebar",
-  initialize() {
-    withPluginApi("0.8", (api) => {
-      api.decorateWidget("sidebar:after", (helper) => {
-        // 这个可以用于插入你的 sidebar 组件
-        return helper.attach("sidebar");
-      });
+export default apiInitializer("0.8", (api) => {
+  // 解析设置参数
+  function parseList(settingList) {
+    if (!settingList || !settingList.length) return [];
+    return settingList
+      .map((item) => {
+        try {
+          return JSON.parse(item);
+        } catch (e) {
+          return null;
+        }
+      })
+      .filter(Boolean);
+  }
 
-      // 获取新用户列表
-      const store = api.container.lookup("service:store");
-      const controller = api.container.lookup("controller:application");
-      store
-        .findAll("user")
-        .then((users) => {
-          const newUsers = users
-            .sortBy("created_at")
-            .reverse()
-            .slice(0, parseInt(settings.sidebar_welcome_user_count, 10));
-          controller.set("newUsers", newUsers);
-        });
+  // 获取组件设置
+  const siteSettings = api.container.lookup("service:siteSettings");
+  const settings = siteSettings;
+  // custom_links 和 ad_slots 是字符串数组
+  const links = parseList(settings.custom_links);
+  const ads = parseList(settings.ad_slots);
+
+  // 注册 sidebar 组件
+  api.decorateWidget("after-footer:after", (helper) => {
+    return helper.attach("sidebar", {
+      links,
+      ads,
+      settings
     });
-  },
-};
+  });
+
+  // 获取新用户
+  const applicationController = getOwner(this).lookup("controller:application");
+  applicationController.set("newUsers", []);
+
+  fetch("/u.json")
+    .then((r) => r.json())
+    .then((data) => {
+      let count = parseInt(settings.sidebar_welcome_user_count, 10) || 5;
+      let newUsers = data.users
+        .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+        .slice(0, count);
+      applicationController.set("newUsers", newUsers);
+    });
+});
