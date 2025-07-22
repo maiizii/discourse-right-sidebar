@@ -3,7 +3,6 @@ import { apiInitializer } from "discourse/lib/api";
 import { getOwner } from "@ember/application";
 
 export default apiInitializer("0.8", (api) => {
-  // 解析设置参数
   function parseList(settingList) {
     if (!settingList || !settingList.length) return [];
     return settingList
@@ -17,14 +16,12 @@ export default apiInitializer("0.8", (api) => {
       .filter(Boolean);
   }
 
-  // 获取组件设置
   const siteSettings = api.container.lookup("service:siteSettings");
   const settings = siteSettings;
   // custom_links 和 ad_slots 是字符串数组
   const links = parseList(settings.custom_links);
   const ads = parseList(settings.ad_slots);
 
-  // 注册 sidebar 组件
   api.decorateWidget("after-footer:after", (helper) => {
     return helper.attach("sidebar", {
       links,
@@ -33,7 +30,6 @@ export default apiInitializer("0.8", (api) => {
     });
   });
 
-  // 获取新用户
   const applicationController = getOwner(this).lookup("controller:application");
   applicationController.set("newUsers", []);
 
