@@ -39,6 +39,6 @@ export default apiInitializer("0.8", (api) => {
   }
 
   api.onPageChange(() => {
-    setTimeout(mountSidebar, 500); // 确保主页面渲染后插入
+    setTimeout(mountSidebar, 500);
   });
 });
