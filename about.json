@@ -5,5 +5,5 @@
   "theme_version": "2.8.0",
   "license": "MIT",
   "component": true,
-  "description": "右侧边栏，包含用户信息、自定义链接、广告位、欢迎新用户"
+  "description": "右侧边栏，包含用户信息、自定义链接、广告位等"
 }
